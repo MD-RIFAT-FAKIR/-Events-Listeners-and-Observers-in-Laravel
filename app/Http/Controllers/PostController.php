@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\User;
 use Mail;
 
 class PostController extends Controller
@@ -21,7 +22,16 @@ class PostController extends Controller
 
 
         //notify users
+        $users = User::all();
+
+        foreach($users as $user){
+        Mail::raw("Hey '{$user->name}' check out our new post:-'{$post->title}'", function($message) use ($user) {
+            $message->to($user->email)
+            ->subject("New blog post");
+        });
+        }
 
         return back();
     }
+
 }

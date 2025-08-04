@@ -10,7 +10,7 @@
   />
   <style>
     body {
-      background: linear-gradient(to bottom, #ffffff, #dcdcdc);
+      background: linear-gradient(to bottom, #a2ea75ff, #61edf0ff);
       height: 100vh;
       display: flex;
       justify-content: center;
@@ -21,7 +21,7 @@
       background-color: white;
       padding: 40px;
       border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 0 10px rgba(124, 211, 48, 0.1);
       width: 100%;
       max-width: 800px;
     }
@@ -43,14 +43,15 @@
 <body>
   <div class="form-container">
     <h1>Create a New Blog Post</h1>
-    <form>
+    <form action="{{ url('create/post') }}" method="POST">
+      @csrf
       <div class="mb-3">
         <label for="postTitle" class="form-label">Post Title</label>
-        <input type="text" class="form-control" id="postTitle" placeholder="Enter post title">
+        <input type="text" class="form-control" name="title" placeholder="Enter post title">
       </div>
       <div class="mb-4">
         <label for="postContent" class="form-label">Post Content</label>
-        <textarea class="form-control" id="postContent" rows="5" placeholder="Enter post content"></textarea>
+        <textarea class="form-control" name="content" rows="5" placeholder="Enter post content"></textarea>
       </div>
       <button type="submit" class="btn btn-success btn-create">Create Post</button>
     </form>

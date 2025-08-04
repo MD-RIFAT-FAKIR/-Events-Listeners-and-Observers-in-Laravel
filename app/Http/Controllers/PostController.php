@@ -15,10 +15,6 @@ class PostController extends Controller
             "content"=> $request->content,
         ]);
 
-        //notify admin
-        Mail::raw("A new post '{$post->title}' has been published", function($message){
-            $message->to("admin@email.com")->subject("New post published");
-        });
 
 
         //notify users

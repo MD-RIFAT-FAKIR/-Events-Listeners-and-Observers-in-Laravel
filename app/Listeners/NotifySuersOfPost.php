@@ -8,7 +8,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use App\Models\User;
 use Mail;
 
-class NotifySuersOfPost
+class NotifySuersOfPost implements ShouldQueue
 {
     /**
      * Create the event listener.

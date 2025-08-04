@@ -8,7 +8,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Mail;
 
 
-class NotifyAdminOfPost
+class NotifyAdminOfPost implements ShouldQueue
 {
     /**
      * Create the event listener.

@@ -14,6 +14,7 @@ class PostController extends Controller
             "title"=> $request->title,
             "content"=> $request->content,
         ]);
+        
 
         PostPublished::dispatch($post);
 

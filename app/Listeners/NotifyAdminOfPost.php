@@ -27,5 +27,7 @@ class NotifyAdminOfPost implements ShouldQueue
         Mail::raw("A new post '{$event->post->title}' has been published", function($message){
             $message->to("admin@email.com")->subject("New post published");
         });
+    
+    
     }
 }
